@@ -48,41 +48,13 @@ class GameObject:
         self.position = ((SCREEN_WIDTH // 2), (SCREEN_HEIGHT // 2))
         self.body_color = ...
 
-    def draw(self):
-        pass
-
-class Apple(GameObject):
-    """Яблоко"""
-    def __init__(self):
-        super().__init__()
-        self.body_color = APPLE_COLOR
-        self.position = self.randomize_position()
-
-    def randomize_position(self):
-        random_position = ((randint(0, GRID_WIDTH) * GRID_SIZE), (randint(0, GRID_WIDTH) * GRID_SIZE)) 
-        return random_position
-    
-    # Метод draw класса Apple
-    def draw(self):
-        rect = pygame.Rect(self.position, (GRID_SIZE, GRID_SIZE))
-        pygame.draw.rect(screen, self.body_color, rect)
-        pygame.draw.rect(screen, BORDER_COLOR, rect, 1)
-
 
 
 def main():
     # Инициализация PyGame:
     pygame.init()
     # Тут нужно создать экземпляры классов.
-    apple = Apple()
-
-    apple.draw()
-    running = True
-
-    while running:
-        pygame.display.update()
-
-    pygame.quit()
+    ...
 
     # while True:
     #     clock.tick(SPEED)
