@@ -202,10 +202,8 @@ def main():
         handle_keys(snake)
         snake.update_direction()
         snake.update_last_position()
-        snake.move()
-        
+        snake.move()      
         if apple.position in snake.positions:
-            
             snake.length += 1
             snake.positions.insert(-1, snake.positions[-1])
             counter = 0
@@ -222,11 +220,7 @@ def main():
                 else:
                     continue
             apple.draw()
-                
-            
-
         snake.draw()
-        
         pygame.display.update()
 
     pygame.quit()
