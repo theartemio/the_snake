@@ -211,7 +211,7 @@ def handle_keys(game_object):
 
 
 def main():
-    """Основная функция игры""" 
+    """Основная функция игры"""
     apple = Apple()
     snake = Snake()
     apple.draw()
