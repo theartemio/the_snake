@@ -227,7 +227,6 @@ def main():
             new_apple_position = apple.randomize_position()
             apple.position = new_apple_position
             apple.draw()
-            print(apple.position)
             snake.reseted = False
         if apple.position == snake.get_head_position():
             snake.length += 1
@@ -235,7 +234,6 @@ def main():
             new_apple_position = apple.randomize_position()
             apple.position = new_apple_position
             apple.draw()
-            print(apple.position)
         snake.draw()
         pygame.display.update()
     pygame.quit()
