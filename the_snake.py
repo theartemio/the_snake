@@ -242,7 +242,7 @@ def main():
             apple.draw()
         snake.draw()
         pg.display.update()
-        pg.display.set_caption(f"Змейка :: " 
+        pg.display.set_caption(f"Змейка :: "
                                f"Рекорд: {max_len} :: Выход: Esc"
                                )
     pg.quit()
