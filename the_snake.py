@@ -62,7 +62,10 @@ class GameObject:
         """
         raise NotImplementedError()
 
-    def draw_cell(self, position: POSITION=None, color: COLOR=None) -> None:
+    def draw_cell(self,
+                  position: POSITION = None,
+                  color: COLOR = None
+                  ) -> None:
         """
         Метод для отрисовки одной ячейки.
         Служит для вызова при отрисовке объектов.
@@ -239,9 +242,7 @@ def main():
             apple.draw()
         snake.draw()
         pg.display.update()
-        pg.display.set_caption(f"Змейка :: "
-                               f"Рекорд: {max_len} :: Выход: Esc"
-                               )
+        pg.display.set_caption(f"Змейка :: " f"Рекорд: {max_len} :: Выход: Esc")
     pg.quit()
 
 
