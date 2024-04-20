@@ -62,7 +62,7 @@ class GameObject:
         """
         raise NotImplementedError()
 
-    def draw_cell(self, position: POSITION = None, color: COLOR = None) -> None:
+    def draw_cell(self, position: POSITION=None, color: COLOR=None) -> None:
         """
         Метод для отрисовки одной ячейки.
         Служит для вызова при отрисовке объектов.
@@ -150,7 +150,8 @@ class Snake(GameObject):
         добавляя новую голову в начало списка positions и
         удаляя последний элемент, если длина змейки не увеличилась.
         """
-        head_x, head_y = self.get_head_position()[0], self.get_head_position()[1]
+        head_x = self.get_head_position()[0]
+        head_y = self.get_head_position()[1]
         dir_x, dir_y = self.direction[0], self.direction[1]
         new_head: POSITION = (
             (lambda a, b: a + (b * GRID_SIZE))(head_x, dir_x) % SCREEN_WIDTH,
@@ -238,7 +239,9 @@ def main():
             apple.draw()
         snake.draw()
         pg.display.update()
-        pg.display.set_caption(f"Змейка :: " f"Рекорд: {max_len} :: Выход: Esc")
+        pg.display.set_caption(f"Змейка :: "
+                               f"Рекорд: {max_len} :: Выход: Esc"
+                               )
     pg.quit()
 
 
