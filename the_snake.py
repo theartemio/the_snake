@@ -37,7 +37,7 @@ APPLE_COLOR: COLOR = (255, 0, 0)
 SNAKE_COLOR: COLOR = (0, 255, 0)
 
 # Скорость движения змейки:
-SPEED: int = 10
+SPEED: int = 20
 
 # Настройка игрового окна:
 screen = pg.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), 0, 32)
@@ -53,7 +53,7 @@ class GameObject:
 
     def __init__(self) -> None:
         self.position: POSITION = ((SCREEN_WIDTH // 2), (SCREEN_HEIGHT // 2))
-        self.body_color: Optional[COLOR] = None
+        self.body_color: Optional[COLOR] = APPLE_COLOR
 
     def draw(self) -> None:
         """
@@ -97,9 +97,7 @@ class Apple(GameObject):
                 (randint(0, GRID_WIDTH - 1) * GRID_SIZE),
                 (randint(0, GRID_HEIGHT - 1) * GRID_SIZE),
             )
-            if rand_position in self.occupied_positions:
-                continue
-            else:
+            if rand_position not in self.occupied_positions:
                 break
         return rand_position
 
@@ -153,12 +151,11 @@ class Snake(GameObject):
         добавляя новую голову в начало списка positions и
         удаляя последний элемент, если длина змейки не увеличилась.
         """
-        head_x = self.get_head_position()[0]
-        head_y = self.get_head_position()[1]
-        dir_x, dir_y = self.direction[0], self.direction[1]
+        head_x, head_y = self.get_head_position()
+        dir_x, dir_y = self.direction
         new_head: POSITION = (
-            (lambda a, b: a + (b * GRID_SIZE))(head_x, dir_x) % SCREEN_WIDTH,
-            (lambda a, b: a + (b * GRID_SIZE))(head_y, dir_y) % SCREEN_HEIGHT,
+            (head_x + (dir_x * GRID_SIZE)) % SCREEN_WIDTH,
+            (head_y + (dir_y * GRID_SIZE)) % SCREEN_HEIGHT,
         )
         if len(self.positions) > 2 and new_head in self.positions[2:-1]:
             self.reset()
