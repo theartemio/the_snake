@@ -51,9 +51,9 @@ clock = pg.time.Clock()
 class GameObject:
     """Базовый класс, от которого наследуются другие игровые объекты."""
 
-    def __init__(self) -> None:
+    def __init__(self, body_color: Optional[COLOR] = APPLE_COLOR) -> None:
         self.position: POSITION = ((SCREEN_WIDTH // 2), (SCREEN_HEIGHT // 2))
-        self.body_color: Optional[COLOR] = APPLE_COLOR
+        self.body_color = body_color
 
     def draw(self) -> None:
         """
