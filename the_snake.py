@@ -78,9 +78,8 @@ class GameObject:
 class Apple(GameObject):
     """Класс объекта 'Яблоко'."""
 
-    def __init__(self) -> None:
-        super().__init__()
-        self.body_color: COLOR = APPLE_COLOR
+    def __init__(self, body_color: COLOR = APPLE_COLOR) -> None:
+        super().__init__(body_color)
         self.occupied_positions: list = []
         self.position: POSITION = self.randomize_position()
         self.draw()
@@ -109,9 +108,8 @@ class Apple(GameObject):
 class Snake(GameObject):
     """Класс объекта 'Змейка'."""
 
-    def __init__(self) -> None:
-        super().__init__()
-        self.body_color: COLOR = SNAKE_COLOR
+    def __init__(self, body_color: COLOR = SNAKE_COLOR) -> None:
+        super().__init__(body_color)
         self.direction: POINTER = RIGHT
         self.next_direction: Optional[POINTER] = None
         self.length: int = 1
